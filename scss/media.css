@@ -1,0 +1,510 @@
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .plans-content-element {
+        width: 90%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .plans-content-element-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .plans-content-element-text-title {
+        font-size: 28px;
+    }
+
+    .plans-content-element-text-info {
+        font-size: var(--FontSmallSize);
+    }
+
+    .plans-btn-link {
+        width: 200px;
+    }
+}
+
+/* Адаптив для телефонов (ширина до 480px) */
+@media (max-width: 480px) {
+    .plans-topic {
+        padding: 40px 0px;
+    }
+
+    .plans-content-element {
+        width: 100%;
+        padding-bottom: 20px;
+        align-items: flex-start;
+    }
+
+    .plans-content-element-text {
+        width: 100%;
+        text-align: left;
+    }
+
+    .plans-content-element-text-title {
+        font-size: 24px;
+    }
+
+    .plans-content-element-text-info {
+        font-size: var(--FontTinySize);
+    }
+
+    .plans-btn-link {
+        width: 180px;
+    }
+}
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .popular-subtitle, .conditions-subtitle, .sale-content-card-info-title {
+        font-size: 28px;
+        width: 90%;
+    }
+    .sale-content-card {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+    }
+    .sale-content-card-info {
+        width: 80%;
+    }
+    .rules-top, .contact-top, .footer-content, .contact-structure, .conditions-subtitle {
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
+    }
+    .popular-btn-link, .sale-content-card-info-link, .special-form-subscription-button {
+        width: 200px;
+        padding: 20px;
+    }
+    .popular-content {
+        justify-content: center;
+    }
+}
+
+/* Адаптив для телефонов (ширина до 480px) */
+@media (max-width: 480px) {
+    .popular-subtitle, .conditions-subtitle, .sale-content-card-info-title {
+        font-size: 24px;
+    }
+    .sale-content-card, .popular-subtitle, .contact-structure {
+        width: 100%;
+    }
+    .rules-top-element, .contact-top-element {
+        width: 100%;
+    }
+    .sale-content-card-info-title, .footer-content-list-item-link, .contact-structure-row-info {
+        font-size: 18px;
+    }
+    .popular-btn-link, .sale-content-card-info-link, .special-form-subscription-button {
+        width: 180px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .purchase-form {
+        width: 90%; /* Уменьшаем ширину до 90% экрана */
+        height: auto; /* Автоматическая высота */
+        padding: 20px; /* Дополнительные отступы */
+        margin-top: -50px; /* Уменьшаем отрицательный отступ */
+        position: relative; /* Меняем позиционирование */
+    }
+}
+
+/* Адаптив для телефонов (до 480px) */
+@media (max-width: 480px) {
+    .purchase-form {
+        width: 90%;
+        margin-top: 0; /* Убираем отрицательный отступ */
+        padding: 15px; /* Уменьшаем отступы */
+        height: auto; /* Автоматическая высота для контента */
+        border-radius: 20px; /* Радиус скругления поменьше */
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15); /* Меньшая тень */
+    }
+}
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .contact-bottom, .rules-bottom {
+      width: 80%; /* Уменьшаем ширину до 80% */
+      padding-bottom: 30px; /* Немного уменьшаем нижний отступ */
+    }
+  }
+  
+  /* Адаптив для телефонов (ширина до 480px) */
+  @media (max-width: 480px) {
+    .contact-bottom, .rules-bottom {
+      width: 90%; /* Растягиваем ширину до 90% */
+      padding-bottom: 20px; /* Уменьшаем нижний отступ для компактности */
+    }
+  }
+
+  /* Адаптив для планшетов (ширина до 768px) */
+  @media (max-width: 768px) {
+    .rules-top {
+      flex-direction: column; /* Размещаем элементы в столбик */
+    }
+    .rules-top-element:first-child {
+      width: 80%; /* Уменьшаем ширину */
+    }
+    .rules-bottom {
+      width: 80%; /* Уменьшаем ширину для планшетов */
+    }
+    .rules-btn-link {
+      width: 220px; /* Уменьшаем ширину кнопки */
+      height: 70px; /* Уменьшаем высоту кнопки */
+      font-size: 24px; /* Уменьшаем размер текста */
+    }
+  }
+  
+  /* Адаптив для телефонов (ширина до 480px) */
+  @media (max-width: 480px) {
+    .rules-top {
+      flex-direction: column;
+      padding-bottom: 20px; /* Уменьшаем отступы */
+    }
+    .rules-top-element:first-child {
+      width: 100%; /* Используем полную ширину экрана */
+    }
+    .rules-bottom {
+      width: 90%; /* Ещё больше уменьшаем ширину */
+      padding-bottom: 20px;
+    }
+    .rules-btn-link {
+      width: 180px; /* Ещё уменьшаем ширину кнопки */
+      height: 60px; /* Уменьшаем высоту кнопки */
+      font-size: 20px; /* Ещё уменьшаем размер текста */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .special-form {
+      width: 90%; /* Уменьшение ширины */
+      height: auto;
+      padding: 20px;
+    }
+    .special-form-title {
+      font-size: 24px;
+    }
+    .special-form-description {
+      width: 90%;
+      font-size: 18px;
+      padding-bottom: 20px;
+    }
+    .special-form-subscription {
+      width: 90%;
+      flex-direction: column; /* Вертикальное расположение */
+      height: auto;
+    }
+    .special-form-subscription-email {
+      font-size: 18px;
+      padding: 15px;
+      border-radius: 20px;
+    }
+    .special-form-subscription-button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Адаптив для телефонов (до 480px) */
+  @media (max-width: 480px) {
+    .special-form {
+      width: 100%;
+      padding: 20px;
+    }
+    .special-form-title {
+      font-size: 20px;
+      padding: 20px 0 10px;
+    }
+    .special-form-description {
+      font-size: 16px;
+      padding-bottom: 10px;
+      width: 90%;
+    }
+    .special-form-subscription {
+      width: 100%;
+      padding: 10px;
+    }
+    .special-form-subscription-email {
+      font-size: 16px;
+      padding: 10px;
+    }
+    .special-form-subscription-button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+  }
+/* Адаптив для планшетов (до 768px) */
+@media (max-width: 768px) {
+    .intro-slider {
+        height: 400px; /* Уменьшенная высота */
+    }
+
+    .intro-slider-slide-slogan {
+        top: 30px;
+        right: 20px;
+        width: 600px;
+        height: 60px;
+        font-size: 24px; /* Уменьшаем размер текста */
+    }
+
+    .intro-slider-slide-slogan-topic {
+        font-size: 22px;
+        padding: 15px 0;
+    }
+
+    .intro-slider-controls {
+        top: 130px;
+        right: 20px;
+    }
+    .menu-link {
+        
+    }
+}
+
+/* Адаптив для телефонов (до 480px) */
+@media (max-width: 480px) {
+    .intro-slider {
+        height: 300px; /* Еще меньшая высота для телефонов */
+    }
+
+    .intro-slider-slide-slogan {
+        top: 20px;
+        right: 10px;
+        width: 90%;
+        height: auto;
+        padding: 10px;
+        font-size: 18px; /* Более компактный текст */
+    }
+
+    .intro-slider-slide-slogan-topic {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+
+    .intro-slider-controls {
+        top: 100px;
+        right: 10px;
+    }
+    .menu-link {
+        
+    }
+}
+
+/* Адаптив для планшетов (до 768px) */
+@media (max-width: 768px) {
+    .menu {
+        padding: 20px;
+    }
+
+    .menu-top {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .menu-item:nth-child(5) {
+        margin-right: 0;
+    }
+
+    .menu-item,
+    .menu-item:nth-child(6),
+    .menu-item:last-child {
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+}
+
+/* Адаптив для телефонов (до 480px) */
+@media (max-width: 480px) {
+    .menu {
+        padding: 20px 10px;
+    }
+
+    .menu-top {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .menu-item {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .menu-item:nth-child(6),
+    .menu-item:last-child {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .advantages-topic {
+        padding: 30px 0;
+        font-size: var(--FontSmallSize); /* Размер текста для заголовка */
+    }
+
+    .advantages-content {
+        flex-direction: column; /* Столбцом на малых экранах */
+        align-items: center;
+        gap: 20px; /* Расстояние между элементами */
+    }
+
+    .advantages-content-element {
+        width: 80%; /* Ширина элемента на планшетах */
+    }
+
+    .advantages-content-element-text {
+        font-size: calc(var(--FontMiniSize) - 2px); /* Чуть меньший текст */
+        padding: 15px 0 30px;
+    }
+}
+
+/* Адаптив для телефонов (ширина до 480px) */
+@media (max-width: 480px) {
+    .advantages-topic {
+        padding: 20px 0;
+        font-size: var(--FontTinySize); /* Более компактный заголовок */
+    }
+
+    .advantages-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .advantages-content-element {
+        width: 100%; /* На всю ширину экрана */
+        padding: 0 10px; /* Внутренние отступы для компактности */
+    }
+
+    .advantages-content-element-text {
+        font-size: calc(var(--FontMiniSize) - 4px); /* Уменьшение текста для телефонов */
+        padding: 10px 0 20px;
+    }
+}
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .story-topic {
+        padding: 30px 0;
+        font-size: var(--FontSmallSize); /* Меньший размер текста для заголовка */
+    }
+
+    .story-top {
+        flex-direction: column; /* В столбик */
+        align-items: center;
+        gap: 20px; /* Расстояние между элементами */
+    }
+
+    .story-top-element {
+        width: 90%; /* Ширина элемента на планшетах */
+    }
+
+    .story-top-element:last-child {
+        width: 100%; /* На всю ширину */
+    }
+
+    .story-bottom {
+        padding-bottom: 60px; /* Меньший отступ внизу */
+    }
+
+    .story-text {
+        font-size: var(--FontMiniSize); /* Уменьшенный текст для планшетов */
+        padding: 0 10px; /* Внутренние отступы для компактности */
+    }
+}
+
+/* Адаптив для телефонов (ширина до 480px) */
+@media (max-width: 480px) {
+    .story-topic {
+        padding: 20px 0;
+        font-size: var(--FontTinySize); /* Более компактный заголовок */
+    }
+
+    .story-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .story-top-element {
+        width: 100%; /* На всю ширину */
+        padding: 0 10px; /* Дополнительные отступы */
+    }
+
+    .story-top-element:last-child {
+        width: 100%;
+    }
+
+    .story-bottom {
+        padding-bottom: 40px; /* Уменьшенный нижний отступ для телефонов */
+    }
+
+    .story-text {
+        font-size: calc(var(--FontTinySize) - 2px); /* Уменьшенный текст для телефонов */
+        padding: 0 10px; /* Узкие отступы */
+    }
+}
+
+/* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .purchase-form-line {
+      flex-direction: column; /* Изменяем расположение элементов на вертикальное */
+      margin: 15px 5px; /* Уменьшаем отступы для планшетов */
+      gap: 10px; /* Добавляем промежуток между элементами */
+    }
+  }
+  
+  /* Адаптив для телефонов (ширина до 480px) */
+  @media (max-width: 480px) {
+    .purchase-form-line {
+      flex-direction: column; /* Вертикальное выравнивание для мобильных устройств */
+      margin: 10px 5px; /* Еще меньшие отступы */
+      gap: 8px; /* Промежуток между элементами */
+    }
+  }
+
+  /* Адаптив для планшетов (ширина до 768px) */
+@media (max-width: 768px) {
+    .profile-layout {
+        flex-direction: column; /* Меняем расположение столбиков на вертикальное */
+        align-items: center; /* Центрируем их */
+    }
+
+    .left-column, .right-column {
+        width: 90%; /* Уменьшаем ширину столбиков */
+        margin-bottom: 20px; /* Добавляем отступы между столбиками */
+    }
+}
+
+/* Адаптив для телефонов (ширина до 480px) */
+@media (max-width: 480px) {
+    .profile-layout {
+        flex-direction: column; /* Переводим в вертикальное положение */
+        align-items: center; /* Центрируем элементы */
+    }
+
+    .left-column, .right-column {
+        width: 100%; /* Столбики занимают всю ширину экрана */
+        margin-bottom: 15px; /* Уменьшаем отступы между блоками */
+    }
+}
+
+/* Дополнительные стили для пользователя */
+.user-avatar {
+    text-align: center; /* Центрируем аватар */
+    margin-bottom: 20px; /* Отступ внизу */
+}
+
+.avatar-upload form {
+    margin-bottom: 10px; /* Отступ между формами загрузки и удаления */
+}
