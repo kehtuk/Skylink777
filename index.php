@@ -1,10 +1,5 @@
 <?php
 session_start(); // Убедитесь, что сессия запущена
-
-// Отладка: выводим содержимое сессии
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -31,16 +26,16 @@ echo "</pre>";
                         <a href="index.php" class="menu-link"><img src="img/Логотип.svg" alt="Logo"></a>
                     </li>
                     <li class="menu-item">
-                        <a href="flights.html" class="menu-link">Рейсы</a>
+                        <a href="flightss.php" class="menu-link">Рейсы</a>
                     </li>
                     <li class="menu-item">
-                        <a href="promotions.html" class="menu-link">Акции</a>
+                        <a href="promotions.php" class="menu-link">Акции</a>
                     </li>
                     <li class="menu-item">
-                        <a href="information.html" class="menu-link">Информация</a>
+                        <a href="information.php" class="menu-link">Информация</a>
                     </li>
                     <li class="menu-item">
-                        <a href="contacts.html" class="menu-link">Контакты</a>
+                        <a href="contacts.php" class="menu-link">Контакты</a>
                     </li>
 
                     <?php session_start(); // Убедитесь, что сессия запущена ?>
@@ -122,7 +117,6 @@ echo "</pre>";
                         <option value="" disabled selected>Выберите пол</option>
                         <option value="male">Мужчина</option>
                         <option value="female">Женщина</option>
-                        <option value="other">Другой</option>
                     </select>
                     <div class="error" id="genderError"></div>
 
@@ -354,7 +348,7 @@ echo "</pre>";
                         </div>
                     </div>
                 </div>
-                <div class="plans-btn"><a href="promotions.html" class="plans-btn-link">Акции</a></div>
+                <div class="plans-btn"><a href="promotions.php" class="plans-btn-link">Акции</a></div>
             </div>
         </section>
         <!--------------Section_5-------------->
@@ -364,7 +358,7 @@ echo "</pre>";
                     Популярные рейсы
                 </h2>
                 <div class="popular-content">
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -375,7 +369,7 @@ echo "</pre>";
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -386,7 +380,7 @@ echo "</pre>";
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -397,7 +391,7 @@ echo "</pre>";
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -408,7 +402,7 @@ echo "</pre>";
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -419,7 +413,7 @@ echo "</pre>";
                             </p>
                         </div>
                     </a>
-                    <a href="#" class="popular-content-card-link">
+                    <a href="purchase.php" class="popular-content-card-link">
                         <div class="popular-content-card">
                             <img src="img/Майами.svg" alt="Майами" class="popular-content-card-picture">
                             <h3 class="popular-content-card-title">
@@ -431,7 +425,7 @@ echo "</pre>";
                         </div>
                     </a>
                 </div>
-                <div class="popular-btn"><a href="flights.html" class="popular-btn-link">Все рейсы</a></div>
+                <div class="popular-btn"><a href="flightss.php" class="popular-btn-link">Все рейсы</a></div>
             </div>
         </section>
         <!--------------Section_6-------------->
@@ -460,7 +454,7 @@ echo "</pre>";
                     Желаете узнать подробную информацию о правилах перевозки? Нажмите на кнопку ниже
                 </p>
                 <div class="rules-btn">
-                    <a href="information.html" class="rules-btn-link">Подробнее</a>
+                    <a href="information.php" class="rules-btn-link">Подробнее</a>
                 </div>
             </div>
         </section>
@@ -488,7 +482,7 @@ echo "</pre>";
                     Нажмите на кнопку ниже
                 </p>
                 <div class="contact-btn">
-                    <a href="contacts.html" class="contact-btn-link">Контакты</a>
+                    <a href="contacts.php" class="contact-btn-link">Контакты</a>
                 </div>
             </div>
         </section>
@@ -517,10 +511,10 @@ echo "</pre>";
                     </div>
                     <div class="footer-content-element">
                         <ul class="footer-content-list">
-                            <li class="footer-content-list-item"><a href="flights.html" class="footer-content-list-item-link">Рейсы</a></li>
-                            <li class="footer-content-list-item"><a href="promotions.html" class="footer-content-list-item-link">Акции</a></li>
-                            <li class="footer-content-list-item"><a href="information.html" class="footer-content-list-item-link">Информация</a></li>
-                            <li class="footer-content-list-item"><a href="contacts.html" class="footer-content-list-item-link">Контакты</a></li>
+                            <li class="footer-content-list-item"><a href="flightss.php" class="footer-content-list-item-link">Рейсы</a></li>
+                            <li class="footer-content-list-item"><a href="promotions.php" class="footer-content-list-item-link">Акции</a></li>
+                            <li class="footer-content-list-item"><a href="information.php" class="footer-content-list-item-link">Информация</a></li>
+                            <li class="footer-content-list-item"><a href="contacts.php" class="footer-content-list-item-link">Контакты</a></li>
                             <li class="footer-content-list-item"><a href="profile.html" class="footer-content-list-item-link">Профиль</a></li>
                         </ul>
                         <p class="footer-content-copyright">© 2024 SkyLink. All rights reserved.</p>

@@ -51,232 +51,211 @@ $result_orders = $conn->query("SELECT * FROM Orders");
     <title>SkyLink</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-/* Основной стиль для страницы */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-h1, h2 {
-    color: #333;
-}
+        h1, h2 {
+            color: #333;
+        }
 
-/* Стили для шапки */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-.header a {
-    background-color: #51B0BA;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 4px;
-    margin: 5px;
-}
+        .header a {
+            background-color: #51B0BA;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
 
-.header a:hover {
-    background-color: #408c97;
-}
+        .header a:hover {
+            background-color: #0056b3;
+        }
 
-/* Контейнер для карточек */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
 
-.card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    margin: 0 10px;
-    text-align: center;
-    min-width: 280px;
-    box-sizing: border-box;
-}
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
 
-.card h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    color: #51B0BA;
-}
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #51B0BA;
+        }
 
-.card a {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #51B0BA;
-    color: white;
-    border-radius: 4px;
-    text-decoration: none;
-    margin-top: 10px;
-}
+        .card a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #51B0BA;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
 
-.card a:hover {
-    background-color: #408c97;
-}
+        .card a:hover {
+            background-color: #0056b3;
+        }
 
-/* Стили для форм */
-form {
-    margin-bottom: 20px;
-}
+        form {
+            margin-bottom: 20px;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-button {
-    background: #51B0BA;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
+        button {
+            background: #51B0BA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
 
-button:hover {
-    background: #408c97;
-}
+        button:hover {
+            background: #0056b3;
+        }
 
-/* Стили для таблиц */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-table, th, td {
-    border: 1px solid #ccc;
-}
+        table, th, td {
+            border: 1px solid #ccc;
+        }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-}
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
 
-th {
-    background: #51B0BA;
-    color: white;
-}
+        th {
+            background: #51B0BA;
+            color: white;
+        }
 
-/* Стили для ссылок */
-a {
-    color: #51B0BA;
-    text-decoration: none;
-}
+        a {
+            color: #51B0BA;
+            text-decoration: none;
+        }
 
-a:hover {
-    text-decoration: underline;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    /* Для планшетов */
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        /* Адаптив для устройств с шириной до 768px (планшеты) */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    .card-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
+            .card-container {
+                flex-direction: column;
+            }
 
-    .card {
-        margin-bottom: 15px;
-        width: 100%;
-    }
+            .card {
+                margin-bottom: 20px;
+            }
 
-    form {
-        margin-bottom: 15px;
-    }
+            .card-container {
+                justify-content: center;
+            }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="number"],
-    select {
-        width: 100%;
-    }
+            table {
+                font-size: 14px;
+            }
 
-    button {
-        width: 100%;
-    }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"] {
+                width: 100%;
+            }
 
-    table th, table td {
-        padding: 8px;
-    }
-}
+            button {
+                width: 100%;
+            }
+        }
 
-@media (max-width: 480px) {
-    /* Для мобильных устройств */
-    body {
-        padding: 10px;
-    }
+        /* Адаптив для устройств с шириной до 480px (мобильные устройства) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
 
-    h1 {
-        font-size: 1.8em;
-    }
+            h1 {
+                font-size: 24px;
+            }
 
-    .header a {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
+            h2 {
+                font-size: 20px;
+            }
 
-    .card-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
+            .header a {
+                padding: 8px 12px;
+            }
 
-    .card {
-        width: 100%;
-        margin: 10px 0;
-    }
+            .card-container {
+                flex-direction: column;
+            }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="number"],
-    select {
-        width: 100%;
-    }
+            .card {
+                margin-bottom: 15px;
+            }
 
-    button {
-        width: 100%;
-        font-size: 16px;
-    }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"] {
+                width: 100%;
+            }
 
-    table th, table td {
-        padding: 8px;
-        font-size: 14px;
-    }
+            button {
+                width: 100%;
+                padding: 12px 20px;
+            }
 
-    table {
-        font-size: 14px;
-    }
+            table {
+                font-size: 12px;
+            }
 
-    h2 {
-        font-size: 1.4em;
-    }
-}
+            th, td {
+                padding: 8px;
+            }
+
+        }
 
     </style>
 </head>
@@ -299,6 +278,23 @@ a:hover {
         <h3><i class="fas fa-plane-departure"></i> Рейсы</h3>
         <a href="flights.php">Перейти к рейсам</a>
     </div>
+    <div class="card">
+        <h3><i class="fas fa-chair"></i> Места</h3>
+        <a href="seats.php">Перейти к местам</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-ticket-alt"></i> Места пассажиров</h3>
+        <a href="ordersseat.php">Перейти к местам пассажиров</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-envelope"></i> Подписки</h3>
+        <a href="subscripers.php">Перейти к подпискам</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-question-circle"></i> Запросы</h3>
+        <a href="zapros.php">Перейти к запросам</a>
+    </div>
+
 </div>
 
 <div class="card-container">

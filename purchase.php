@@ -176,16 +176,16 @@ $conn->close();
                         <a href="index.php" class="menu-link"><img src="img/Логотип.svg" alt="Logo"></a>
                     </li>
                     <li class="menu-item">
-                        <a href="flights.html" class="menu-link">Рейсы</a>
+                        <a href="flightss.php" class="menu-link">Рейсы</a>
                     </li>
                     <li class="menu-item">
-                        <a href="promotions.html" class="menu-link">Акции</a>
+                        <a href="promotions.php" class="menu-link">Акции</a>
                     </li>
                     <li class="menu-item">
-                        <a href="information.html" class="menu-link">Информация</a>
+                        <a href="information.php" class="menu-link">Информация</a>
                     </li>
                     <li class="menu-item">
-                        <a href="contacts.html" class="menu-link">Контакты</a>
+                        <a href="contacts.php" class="menu-link">Контакты</a>
                     </li>
 
                     <?php session_start(); // Убедитесь, что сессия запущена ?>
@@ -286,6 +286,7 @@ if ($result->num_rows > 0) {
                         seatButton.textContent = 'Место ' + seat.seat_number;
                         seatButton.dataset.seatNumber = seat.seat_number;
                         if (seat.is_booked) {
+
                             seatButton.disabled = true; // Заблокировать занятые места
                         }
                         seatsSelection.appendChild(seatButton);
@@ -364,238 +365,237 @@ if ($result->num_rows > 0) {
         }
     });
 </script>
+<script src="js/filter-bilet.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script src="js/script.js"></script>
     </body>
 </html>
 
 <style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f8fb;
-    margin: 0;
-    padding: 20px;
-    overflow: auto; /* Восстановить прокрутку страницы */
-}
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f8fb;
+        margin: 0;
+        overflow: auto;
+    }
 
-.flights-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.flight-card {
-    background: linear-gradient(to bottom right, #00aaff, #51B0BA);
-    color: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: calc(33% - 40px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    position: relative;
-}
-
-.flight-card:hover {
-    transform: translateY(-8px);
-}
-
-.select-seat-button {
-    background-color: #ff9900;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 15px;
-    width: 100%;
-    text-align: center;
-}
-
-.select-seat-button:hover {
-    background-color: #cc7a00;
-}
-
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding-top: 60px;
-    overflow-y: auto;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 40px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 900px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    position: relative;
-}
-
-.close {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.seats-selection {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.seat {
-    background-color: #51B0BA;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.seat:hover {
-    background-color: #005f8d;
-}
-
-.order-amount-input {
-    width: 60px;
-    padding: 5px;
-    margin: 10px 0;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.order-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.order-button:hover {
-    background-color: #45a049;
-}
-
-.reset-seats-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-.reset-seats-button:hover {
-    background-color: #d32f2f;
-}
-
-/* Адаптивные стили */
-@media (max-width: 768px) {
-    /* Адаптация для планшетов */
     .flights-container {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
-    }
-
-    .flight-card {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .select-seat-button {
-        width: 100%;
-        padding: 12px 15px;
-    }
-
-    .modal-content {
-        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: center;
         padding: 20px;
     }
 
-    .seats-selection {
-        gap: 10px;
-    }
-
-    .seat {
-        padding: 8px;
-    }
-
-    .order-amount-input {
-        width: 50px;
-    }
-
-    .order-button, .reset-seats-button {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Адаптация для мобильных устройств */
-    .flights-container {
-        padding: 10px;
-    }
-
     .flight-card {
-        width: 100%;
-        padding: 10px;
+        background-color: #ffffff; /* Белый фон */
+        color: #333333;
+        border-radius: 10px;
+        padding: 20px;
+        width: calc(33.33% - 20px); /* Ширина для трех карточек в ряд */
+        max-width: 300px; /* Ограничение максимальной ширины */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flight-card:hover {
+        transform: translateY(-8px);
     }
 
     .select-seat-button {
+        background-color: #51B0BA; /* Бирюзовый цвет кнопки */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 15px;
         width: 100%;
-        padding: 10px;
+        text-align: center;
+    }
+
+    .select-seat-button:hover {
+        background-color: #3a8a91; /* Более тёмный оттенок бирюзового при наведении */
+    }
+
+    /* Модальное окно */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding-top: 60px;
+        overflow-y: auto;
     }
 
     .modal-content {
-        width: 95%;
-        padding: 15px;
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 40px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 900px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
     }
 
     .seats-selection {
-        flex-direction: column;
-        gap: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 20px 0;
     }
 
     .seat {
-        padding: 6px;
+        background-color: #51B0BA; /* Бирюзовый цвет */
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .seat:hover {
+        background-color: #3a8a91;
     }
 
     .order-amount-input {
-        width: 50px;
-        font-size: 14px;
+        width: 60px;
+        padding: 5px;
+        margin: 10px 0;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
     }
 
-    .order-button, .reset-seats-button {
-        width: 100%;
+    .order-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
     }
-}
 
+    .order-button:hover {
+        background-color: #45a049;
+    }
+
+    .reset-seats-button {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    .reset-seats-button:hover {
+        background-color: #d32f2f;
+    }
+
+    p{
+        font-size: 20px;
+    }
+    /* Адаптивные стили */
+    @media (max-width: 768px) {
+        .flights-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .flight-card {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .select-seat-button {
+            width: 100%;
+            padding: 12px 15px;
+        }
+
+        .modal-content {
+            width: 90%;
+            padding: 20px;
+        }
+
+        .seats-selection {
+            gap: 10px;
+        }
+
+        .seat {
+            padding: 8px;
+        }
+
+        .order-amount-input {
+            width: 50px;
+        }
+
+        .order-button, .reset-seats-button {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .flights-container {
+            padding: 10px;
+        }
+
+        .flight-card {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .select-seat-button {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .modal-content {
+            width: 95%;
+            padding: 15px;
+        }
+
+        .seats-selection {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .seat {
+            padding: 6px;
+        }
+
+        .order-amount-input {
+            width: 50px;
+            font-size: 14px;
+        }
+
+        .order-button, .reset-seats-button {
+            width: 100%;
+        }
+    }
 </style>
+

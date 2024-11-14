@@ -99,15 +99,13 @@ $FontMainWeight: 400;
   
     &-content {
         background-color: $BgColorLight;
+        margin: 2% auto;
         width: 400px;
-        height: 690px;
-        margin: 10% auto;
-        overflow-y: auto;
         border-radius: 40px;
         display: flex;
         flex-direction: column;
         text-align: center;
-        align-items: center; /* Выравнивание по центру по горизонтали */
+        align-items: center;
         
         &-logo {
             padding-bottom: 10px;
@@ -181,7 +179,7 @@ $FontMainWeight: 400;
             cursor: pointer;
             margin-top: 10px;
             box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
-            margin: 0 40px; /* Отступы слева и справа */
+            margin: 20px 40px;
         }
     }
 }
@@ -267,6 +265,7 @@ p {
     .reg {
         background-color: $LinksColor;
         color: $FTSecondaryColor;
+
     }
     
     .enter {
@@ -990,6 +989,7 @@ p {
         }
     }
 }
+
 
 
 

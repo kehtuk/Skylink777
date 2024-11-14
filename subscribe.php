@@ -8,8 +8,23 @@ if (!isset($_SESSION['passenger_id'])) {
     exit();
 }
 
-// Подключение к базе данных
-require_once('db_connect.php');  // Подключение файла с настройками базы данных
+// db_connect.php - Подключение к базе данных с использованием PDO
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Skylink777";
+
+try {
+    // Создание подключения с использованием PDO
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+    
+    // Установка атрибутов PDO для обработки ошибок
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    // Обработка ошибок подключения
+    die("Ошибка подключения к базе данных: " . $e->getMessage());
+}
+
 
 // Проверка, был ли отправлен email
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])) {
@@ -39,9 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])) {
     $subscriptionQuery = "INSERT INTO Newsletter_Subscriptions (passenger_id, status) 
                           VALUES (?, 'subscribed')";
     $stmt = $pdo->prepare($subscriptionQuery);
-    $stmt->execute([$passenger_id]);
 
-    // Сообщение о успешной подписке
-    echo "Вы успешно подписались на рассылку!";
+    if ($stmt->execute([$passenger_id])) {
+        // Сообщение о успешной подписке
+        echo "Вы успешно подписались на рассылку!";
+    } else {
+        echo "Ошибка при подписке. Попробуйте еще раз.";
+    }
 }
 ?>

@@ -116,11 +116,12 @@ $conn->close();
 
         /* Стиль карточек заказов */
         .order-card {
-            background: linear-gradient(to bottom right, #00aaff, #0077cc);
-            color: white;
+            background-color: #ffffff; /* Белый фон */
+            color: #333333;
             border-radius: 10px;
             padding: 20px;
-            width: calc(33% - 40px);
+            width: calc(33.33% - 20px); /* Ширина для трех карточек в ряд */
+            max-width: 300px; /* Ограничение максимальной ширины */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
             display: flex;
@@ -143,23 +144,25 @@ $conn->close();
             font-weight: 600;
         }
 
-        .order-card .order-amount, .order-card .order-date {
+        .order-card .order-amount,
+        .order-card .order-date {
             font-size: 14px;
             font-weight: 500;
         }
 
         .cancel-order-button {
-            background-color: #f44336;
+            background-color: #51B0BA; /* Бирюзовый цвет кнопки */
             color: white;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
             margin-top: 10px;
+            transition: background-color 0.3s;
         }
 
         .cancel-order-button:hover {
-            background-color: #d32f2f;
+            background-color: #3a8a91; /* Более тёмный оттенок бирюзового при наведении */
         }
 
         footer {
@@ -176,7 +179,22 @@ $conn->close();
         .status-section h3 {
             margin-bottom: 20px;
         }
+
+        /* Адаптивные стили для планшетов и мобильных устройств */
+        @media (max-width: 768px) {
+            .order-card {
+                width: calc(50% - 20px); /* Две карточки в ряд на планшетах */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .order-card {
+                width: 100%; /* Одна карточка в ряд на мобильных устройствах */
+            }
+        }
     </style>
+
+
 </head>
 <body>
 
@@ -184,15 +202,17 @@ $conn->close();
     <nav class="menu">
         <ul class="menu-top">
             <li class="menu-item"><a href="index.php" class="menu-link"><img src="img/Логотип.svg" alt="Logo"></a></li>
-            <li class="menu-item"><a href="flights.html" class="menu-link">Рейсы</a></li>
-            <li class="menu-item"><a href="promotions.html" class="menu-link">Акции</a></li>
-            <li class="menu-item"><a href="information.html" class="menu-link">Информация</a></li>
-            <li class="menu-item"><a href="contacts.html" class="menu-link">Контакты</a></li>
+            <li class="menu-item"><a href="flightss.php" class="menu-link">Рейсы</a></li>
+            <li class="menu-item"><a href="promotions.php" class="menu-link">Акции</a></li>
+            <li class="menu-item"><a href="information.php" class="menu-link">Информация</a></li>
+            <li class="menu-item"><a href="contacts.php" class="menu-link">Контакты</a></li>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <li class="menu-item"><a href="admin.php" class="menu-link">Админ панель</a></li>
+            <?php endif; ?>
             <li class="menu-item"><a href="logout.php" class="menu-link reg">Выйти</a></li>
         </ul>
     </nav>
 </header>
-
 <section class="account">
     <h2 class="account-topic">Профиль</h2>
     <div class="profile-layout">

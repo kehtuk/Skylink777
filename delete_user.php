@@ -17,13 +17,34 @@ if ($conn->connect_error) {
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $stmt = $conn->prepare("DELETE FROM Passengers WHERE passenger_id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $stmt->close();
+
+    // Начинаем транзакцию для предотвращения неполного удаления
+    $conn->begin_transaction();
+
+    try {
+        // Удаляем заказы пользователя
+        $stmtOrders = $conn->prepare("DELETE FROM Orders WHERE passenger_id = ?");
+        $stmtOrders->bind_param("i", $id);
+        $stmtOrders->execute();
+        $stmtOrders->close();
+
+        // Удаляем пользователя из таблицы Passengers
+        $stmtPassenger = $conn->prepare("DELETE FROM Passengers WHERE passenger_id = ?");
+        $stmtPassenger->bind_param("i", $id);
+        $stmtPassenger->execute();
+        $stmtPassenger->close();
+
+        // Завершаем транзакцию
+        $conn->commit();
+    } catch (Exception $e) {
+        // В случае ошибки откатываем изменения
+        $conn->rollback();
+        die("Ошибка удаления: " . $e->getMessage());
+    }
 }
 
 $conn->close();
 header("Location: admin.php");
+
 ?>
 

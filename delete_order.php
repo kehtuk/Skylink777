@@ -17,13 +17,33 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Удаляем заказ по ID
+// Удаляем заказ и связанные места
 if (isset($_GET['id'])) {
-    $order_id = $_GET['id'];
-    $stmt = $conn->prepare("DELETE FROM Orders WHERE order_id = ?");
-    $stmt->bind_param("i", $order_id);
-    $stmt->execute();
-    $stmt->close();
+    $order_id = intval($_GET['id']);
+
+    // Начинаем транзакцию для целостности данных
+    $conn->begin_transaction();
+
+    try {
+        // Удаляем связанные места из таблицы OrderSeats
+        $stmtSeats = $conn->prepare("DELETE FROM OrderSeats WHERE order_id = ?");
+        $stmtSeats->bind_param("i", $order_id);
+        $stmtSeats->execute();
+        $stmtSeats->close();
+
+        // Удаляем сам заказ из таблицы Orders
+        $stmtOrder = $conn->prepare("DELETE FROM Orders WHERE order_id = ?");
+        $stmtOrder->bind_param("i", $order_id);
+        $stmtOrder->execute();
+        $stmtOrder->close();
+
+        // Подтверждаем транзакцию
+        $conn->commit();
+    } catch (Exception $e) {
+        // В случае ошибки откатываем изменения
+        $conn->rollback();
+        die("Ошибка при удалении заказа: " . $e->getMessage());
+    }
 }
 
 $conn->close();

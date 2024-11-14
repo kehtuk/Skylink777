@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// Отладочный вывод
-var_dump($_SESSION);
-
 // Проверяем, является ли пользователь администратором
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: index.php");
@@ -19,7 +16,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
-    echo "Соединение успешно установлено.";
+
 }
 
 // Обработка добавления нового пользователя
@@ -265,7 +262,7 @@ a:hover {
     th, td {
         padding: 8px;
     }
-    
+
 }
 
     </style>
@@ -289,22 +286,23 @@ a:hover {
         <h3><i class="fas fa-plane-departure"></i> Рейсы</h3>
         <a href="flights.php">Перейти к рейсам</a>
     </div>
-    <div class="card">
-        <h3><i class="fas fa-plane-departure"></i> Места</h3>
-        <a href="Seats.php">Перейти к местам</a>
+        <div class="card">
+            <h3><i class="fas fa-chair"></i> Места</h3>
+            <a href="seats.php">Перейти к местам</a>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-ticket-alt"></i> Места пассажиров</h3>
+            <a href="ordersseat.php">Перейти к местам пассажиров</a>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-envelope"></i> Подписки</h3>
+            <a href="subscripers.php">Перейти к подпискам</a>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-question-circle"></i> Запросы</h3>
+            <a href="zapros.php">Перейти к запросам</a>
     </div>
-    <div class="card">
-        <h3><i class="fas fa-plane-departure"></i> Места пассажиров</h3>
-        <a href="OrderSeats.php">Перейти к местам пассажиров</a>
-    </div>
-    <div class="card">
-        <h3><i class="fas fa-plane-departure"></i> Подписки</h3>
-        <a href="Subscripers.php">Перейти к подпискам</a>
-    </div>
-    <div class="card">
-        <h3><i class="fas fa-plane-departure"></i> Запросы</h3>
-        <a href="zapros.php">Перейти к запросам</a>
-    </div>
+
 </div>
 
 <div class="card-container">
@@ -314,7 +312,7 @@ a:hover {
             <input type="text" name="name" placeholder="Имя" required>
             <input type="text" name="surname" placeholder="Фамилия" required>
             <input type="number" name="age" placeholder="Возраст" required>
-            <input type="text" name="gender" placeholder="Пол (м/ж)" required>
+            <input type="text" name="gender" placeholder="Пол (male/female)" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="phone" placeholder="Телефон">
             <input type="text" name="country" placeholder="Страна" required>

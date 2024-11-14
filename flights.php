@@ -280,6 +280,23 @@ a:hover {
         <h3><i class="fas fa-plane-departure"></i> Рейсы</h3>
         <a href="flights.php">Перейти к рейсам</a>
     </div>
+    <div class="card">
+        <h3><i class="fas fa-chair"></i> Места</h3>
+        <a href="seats.php">Перейти к местам</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-ticket-alt"></i> Места пассажиров</h3>
+        <a href="ordersseat.php">Перейти к местам пассажиров</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-envelope"></i> Подписки</h3>
+        <a href="subscripers.php">Перейти к подпискам</a>
+    </div>
+    <div class="card">
+        <h3><i class="fas fa-question-circle"></i> Запросы</h3>
+        <a href="zapros.php">Перейти к запросам</a>
+    </div>
+
 </div>
 
 <div class="card-container">

@@ -89,10 +89,11 @@ $stmt->bind_param("ssissssss", $name, $surname, $age, $gender, $email, $phone, $
 
 // Выполнение запроса и проверка результата
 if ($stmt->execute()) {
-    echo json_encode(['success' => true, 'message' => "Регистрация прошла успешно!"]);
+    echo "Регистрация прошла успешно!";
 } else {
     handleError("Ошибка: " . $stmt->error);
 }
+
 
 // Закрытие запроса и соединения
 $stmt->close();
